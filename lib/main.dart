@@ -7,7 +7,6 @@ import 'package:http/http.dart' as http;
 import 'package:testpai/boxResults.dart';
 import 'package:testpai/listaEstados.dart';
 import 'package:testpai/models/APIBrasil.dart';
-import 'package:intl/intl.dart';
 import 'models/API.dart';
 
 void main() {
