@@ -172,23 +172,23 @@ class _BoxResultsState extends State<BoxResults> {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: 100,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.purple.withOpacity(0.5)),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _laucherInApp(urlSintomas);
-                        });
-                      },
-                      child: Container(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _laucherInApp(urlSintomas);
+              });
+            },
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 100,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.purple.withOpacity(0.5)),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Container(
                         width: 100,
                         height: 80,
                         child: Padding(
@@ -196,49 +196,49 @@ class _BoxResultsState extends State<BoxResults> {
                           child: Image.asset('assets/sintomas.png'),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16.0, left: 35),
-                      child: Text(
-                        'Quais são os sintomas?',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                            shadows: [
-                              Shadow(
-                                blurRadius: 3,
-                                color: Colors.black,
-                                offset: Offset(1, 3),
-                              ),
-                            ]),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16.0, left: 35),
+                        child: Text(
+                          'Quais são os sintomas?',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                              shadows: [
+                                Shadow(
+                                  blurRadius: 3,
+                                  color: Colors.black,
+                                  offset: Offset(1, 3),
+                                ),
+                              ]),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: 100,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.red.withOpacity(0.5)),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _laucherInApp(urlDiagnostico);
-                        });
-                      },
-                      child: Container(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _laucherInApp(urlDiagnostico);
+              });
+            },
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 100,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.red.withOpacity(0.5)),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Container(
                         width: 100,
                         height: 80,
                         child: Padding(
@@ -246,28 +246,28 @@ class _BoxResultsState extends State<BoxResults> {
                           child: Image.asset('assets/diagnostico2.png'),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16.0, left: 35),
-                      child: Text(
-                        'Diagnostico',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                          shadows: [
-                            Shadow(
-                              blurRadius: 3,
-                              color: Colors.black,
-                              offset: Offset(1, 3),
-                            ),
-                          ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16.0, left: 35),
+                        child: Text(
+                          'Diagnostico',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                            shadows: [
+                              Shadow(
+                                blurRadius: 3,
+                                color: Colors.black,
+                                offset: Offset(1, 3),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
