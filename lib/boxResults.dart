@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:testpai/models/APIBrasil.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:date_format/date_format.dart';
 
 class BoxResults extends StatefulWidget {
   AsyncSnapshot<APIBrasil> snapshot;
