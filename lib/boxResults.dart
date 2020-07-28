@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testpai/models/APIBrasil.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:intl/intl.dart';
 
 class BoxResults extends StatefulWidget {
   final AsyncSnapshot<APIBrasil> snapshot;
@@ -38,18 +37,6 @@ class _BoxResultsState extends State<BoxResults> {
 
   @override
   Widget build(BuildContext context) {
-    //PEGA A DATA DE HOJE MAS SEM AS HORAS
-    /*DateTime dataHoje = DateTime.now();
-    var f = DateFormat(DateFormat.YEAR_MONTH_DAY, 'pt_Br');*/
-
-    DateTime dataHoje = DateTime.now().toUtc().toLocal();
-    var f =
-        DateFormat('EEEE, d MMMM yyyy ' + 'hh:mm', 'pt_BR').format(dataHoje);
-
-    /*final df = new DateFormat('dd-MM-yyyy hh:mm');
-    int myvalue = 1558432747;
-    print(df.format(new DateTime.fromMillisecondsSinceEpoch(myvalue * 1000)));*/
-
     return Column(
       children: <Widget>[
         Row(
@@ -131,11 +118,6 @@ class _BoxResultsState extends State<BoxResults> {
             ),
           ],
         ),
-        SizedBox(
-          height: 10,
-        ),
-        Text("Atualizado em: " + widget.snapshot.data.data.updatedAt),
-        Text('Hoje: ' + f),
         SizedBox(
           height: 10,
         ),
