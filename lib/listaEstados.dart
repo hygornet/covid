@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'models/API.dart';
 
 class ListaEstados extends StatefulWidget {
-  AsyncSnapshot<API> pegaDados;
+  final AsyncSnapshot<API> pegaDados;
 
   ListaEstados(this.pegaDados);
 
@@ -14,14 +13,17 @@ class ListaEstados extends StatefulWidget {
 class _ListaEstadosState extends State<ListaEstados> {
   @override
   Widget build(BuildContext context) {
+    int contador = 0;
     return Container(
       height: MediaQuery.of(context).size.height,
       child: ListView.builder(
           itemCount: widget.pegaDados.data.data.length,
           itemBuilder: (context, i) {
+            contador = i + 1;
             return Card(
               elevation: 6,
               child: ListTile(
+                leading: Text(contador.toString()),
                 title: Text(
                   widget.pegaDados.data.data[i].state,
                   style: TextStyle(

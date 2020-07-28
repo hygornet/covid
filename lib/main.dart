@@ -7,6 +7,7 @@ import 'package:testpai/boxResults.dart';
 import 'package:testpai/listaEstados.dart';
 import 'package:testpai/models/APIBrasil.dart';
 import 'models/API.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
   runApp(MyApp());
@@ -52,11 +53,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getDados();
     getDadosBrasil();
+    initializeDateFormatting('pt_BR', null).then((_) => runApp(MyApp()));
   }
+
+  int contador;
+  var dt;
 
   @override
   Widget build(BuildContext context) {
@@ -94,17 +98,16 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               FutureBuilder<API>(
-                future: getDados(),
-                builder: (context, pegaDados) {
-                  if (pegaDados.hasData) {
-                    return ListaEstados(pegaDados);
-                  } else {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                },
-              ),
+                  future: getDados(),
+                  builder: (context, pegaDados) {
+                    if (pegaDados.hasData) {
+                      return ListaEstados(pegaDados);
+                    } else {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  }),
             ],
           ),
         ),
