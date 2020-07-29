@@ -7,7 +7,6 @@ import 'package:testpai/boxResults.dart';
 import 'package:testpai/listaEstados.dart';
 import 'package:testpai/models/APIBrasil.dart';
 import 'models/API.dart';
-import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
   runApp(MyApp());
@@ -51,16 +50,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int contador;
+
   @override
   void initState() {
     super.initState();
     getDados();
     getDadosBrasil();
-    initializeDateFormatting('pt_BR', null).then((_) => runApp(MyApp()));
   }
-
-  int contador;
-  var dt;
 
   @override
   Widget build(BuildContext context) {
