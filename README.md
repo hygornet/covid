@@ -1,8 +1,8 @@
-# testpai
+# COVID 19-Brasil
 
-A new Flutter project.
+Projeto voltado para demonstrar números de mortes e casos confirmados por todo o Brasil.
 
-## Getting Started
+## Como instalar
 
 This project is a starting point for a Flutter application.
 
