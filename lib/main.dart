@@ -6,11 +6,19 @@ import 'package:http/http.dart' as http;
 import 'package:testpai/boxResults.dart';
 import 'package:testpai/listaEstados.dart';
 import 'package:testpai/models/APIBrasil.dart';
+import 'package:testpai/models/APIDataBrasil.dart';
 import 'models/API.dart';
 
 void main() {
   runApp(MyApp());
 }
+
+final ScrollController controller = ScrollController();
+
+bool isSearching = true;
+TextEditingController dataController = TextEditingController();
+int dataPesquisa;
+bool pesquisaPorData = false;
 
 Future<API> getDados() async {
   final String url = "https://covid19-brazil-api.now.sh/api/report/v1";
@@ -26,6 +34,15 @@ Future<APIBrasil> getDadosBrasil() async {
   final jsonresponse = jsonDecode(response.body);
 
   return APIBrasil.fromJson(jsonresponse);
+}
+
+Future<APIDataBrasil> getDadosBrasilPorData() async {
+  final String url = "https://covid19-brazil-api.now.sh/api/report/v1/brazil/" +
+      dataController.text;
+  http.Response response = await http.get(url);
+  final jsonresponse = jsonDecode(response.body);
+
+  return APIDataBrasil.fromJson(jsonresponse);
 }
 
 class MyApp extends StatelessWidget {
@@ -50,8 +67,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int contador;
-
   @override
   void initState() {
     super.initState();
@@ -65,16 +80,36 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              setState(() {
+                isSearching = !isSearching;
+              });
+            },
+          ),
+          IconButton(
             icon: Image.asset('assets/brasil.png'),
             onPressed: null,
           ),
         ],
-        title: Text(
-          'COVID-19 BRASIL',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
+        title: isSearching
+            ? Text(
+                'COVID-19 BRASIL',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              )
+            : TextField(
+                controller: dataController,
+                onSubmitted: (_) {
+                  setState(() {
+                    pesquisaPorData = true;
+                  });
+                },
+                decoration: InputDecoration(
+                  hintText: 'Digite uma Data ex: (20200420)',
+                ),
+              ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -94,17 +129,51 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
-              FutureBuilder<API>(
-                  future: getDados(),
-                  builder: (context, pegaDados) {
-                    if (pegaDados.hasData) {
-                      return ListaEstados(pegaDados);
-                    } else {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                  }),
+              pesquisaPorData
+                  ? FutureBuilder<APIDataBrasil>(
+                      future: getDadosBrasilPorData(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return Container(
+                            height: 200,
+                            child: ListView.builder(
+                                itemCount: snapshot.data.data.length,
+                                itemBuilder: (ctx, i) {
+                                  i = i + 1;
+                                  return ListTile(
+                                      leading: Text(i.toString()),
+                                      title: Text(
+                                        snapshot.data.data[i].state,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                      subtitle: Text(
+                                          'CASOS: ${snapshot.data.data[i].cases.toString()}'),
+                                      trailing: Text(
+                                          'MORTES: ${snapshot.data.data[i].deaths.toString()}'));
+                                }),
+                          );
+                        } else {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                      },
+                    )
+                  : FutureBuilder<API>(
+                      future: getDados(),
+                      builder: (context, pegaDados) {
+                        if (pegaDados.hasData) {
+                          return ListaEstados(pegaDados);
+                        } else {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                      }),
             ],
           ),
         ),
