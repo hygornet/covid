@@ -15,7 +15,7 @@ class _ListaEstadosState extends State<ListaEstados> {
   Widget build(BuildContext context) {
     int contador = 0;
     return Container(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height / 2,
       child: ListView.builder(
           itemCount: widget.pegaDados.data.data.length,
           itemBuilder: (context, i) {

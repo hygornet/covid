@@ -276,3 +276,9 @@ class _BoxResultsState extends State<BoxResults> {
     );
   }
 }
+
+extension DateTimeExtension on DateTime {
+  DateTime applyTimeOfDay(TimeOfDay time) {
+    return DateTime(year, month, day, time.hour, time.minute);
+  }
+}
