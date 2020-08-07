@@ -26,7 +26,7 @@ class _ListaEstadosState extends State<ListaEstados> {
                 leading: Text(contador.toString()),
                 title: Text(
                   widget.pegaDados.data.data[i].state,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,

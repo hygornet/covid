@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {
               setState(() {
                 isSearching = !isSearching;
@@ -93,9 +93,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         title: isSearching
-            ? Text(
+            ? const Text(
                 'COVID-19 BRASIL',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                 ),
               )
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                     pesquisaPorData = true;
                   });
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Digite uma Data ex: (20200420)',
                 ),
               ),
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                     return BoxResults(snapshot);
                   } else {
                     return Center(
-                      child: CircularProgressIndicator(),
+                      child: const CircularProgressIndicator(),
                     );
                   }
                 },
@@ -135,16 +135,16 @@ class _HomePageState extends State<HomePage> {
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           return Container(
-                            height: 200,
+                            height: 300,
                             child: ListView.builder(
                                 itemCount: snapshot.data.data.length,
                                 itemBuilder: (ctx, i) {
-                                  i = i + 1;
+                                  int contador = i + 1;
                                   return ListTile(
-                                      leading: Text(i.toString()),
+                                      leading: Text(contador.toString()),
                                       title: Text(
                                         snapshot.data.data[i].state,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                           );
                         } else {
                           return Center(
-                            child: CircularProgressIndicator(),
+                            child: const CircularProgressIndicator(),
                           );
                         }
                       },
@@ -170,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                           return ListaEstados(pegaDados);
                         } else {
                           return Center(
-                            child: CircularProgressIndicator(),
+                            child: const CircularProgressIndicator(),
                           );
                         }
                       }),
