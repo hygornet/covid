@@ -1,16 +1,9 @@
 # COVID 19-Brasil
 
-Projeto voltado para demonstrar números de mortes e casos confirmados por todo o Brasil.
+Projeto voltado para manter as pessoas informadas a saberem quantas pessoas no Brasil foram infectadas (confirmadas) e quantas morreram (infelizmente) pelo COVID-19.
 
-## Como instalar
+## O aplicativo
 
-This project is a starting point for a Flutter application.
+Abaixo um vídeo bem rápido de como o projeto está ficando. Pretendo atualizar ele com mais funcionalidades.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
