@@ -2,12 +2,6 @@
 
 Projeto voltado para manter as pessoas informadas a saberem quantas pessoas no Brasil foram infectadas (confirmadas) e quantas morreram (infelizmente) pelo COVID-19.
 
-## O aplicativo
+![covid1](https://user-images.githubusercontent.com/20141630/124405468-1ddce680-dd15-11eb-973d-78143a9e63b0.jpg)
+![covid2](https://user-images.githubusercontent.com/20141630/124405471-1f0e1380-dd15-11eb-9e66-b26125346c96.jpg)
 
-Abaixo um vídeo bem rápido de como o projeto está ficando. Pretendo atualizar ele com mais funcionalidades.
-
-![COVID-19](https://github.com/hygornet/covid/blob/master/COVID-19%20Brasil.mp4)
-
-
-
-oio}}
